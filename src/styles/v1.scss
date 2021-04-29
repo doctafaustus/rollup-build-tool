@@ -1,0 +1,13 @@
+@import './partials/test';
+
+body {
+  border: solid 1px red;
+
+  div {
+    border: solid 1px green;
+  }
+
+  h1 {
+    color: purple !important
+  }
+}

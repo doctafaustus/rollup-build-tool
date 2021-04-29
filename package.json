@@ -8,7 +8,7 @@
     "start": "rollup -c --watch"
   },
   "keywords": [],
-  "author": "Bill Coloe",
+  "author": "doctafaustus",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.13.16",

@@ -1,6 +1,6 @@
-# Rollup Build Tool
+# 🧻 Rollup Build Tool 🧻
 
-A simple, no frills build tool for creating single-file JS bundles for AB test platforms.
+A simple, no-frills build tool for creating single-file JS bundles for AB test platforms.
 
 ## Features
 - **Minifies and bundles code**
@@ -23,9 +23,7 @@ After installing the packages, run this command in the project directory to star
 Rollup will run and bundle code into the `dist` directory. This bundle can be copied and
 pasted into the Optimizely custom code editor for each variation.
 
-The rollup configuration file is set up to watch for any code changes and rebuild the
-files, however this can be disabled by removing `--watch` from the `package.json` `start`
-script. 
+The `package.json` file is set up to watch for any code changes and rebuild the files, however this can be disabled by removing `--watch` from the `package.json` `start` script. 
 
 Babel plugins can be added to the plugins array. See the list of available ES6 plugins
 [here](https://babeljs.io/docs/en/plugins).

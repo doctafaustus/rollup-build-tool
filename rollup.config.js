@@ -13,12 +13,12 @@ import del from 'rollup-plugin-delete';
 del({ targets: 'dist/*' }).buildStart();
 
 // Create a rollup config file for each entry JS file
-const configFiles = globby.sync('./src/*.js').map(inputFile => {
+const configFiles = globby.sync('./src/*.js').map(entryFile => {
   
-  const filenameNoExtension = (inputFile.match(/src\/(.*)\.js/) || [])[1];
+  const filenameNoExtension = (entryFile.match(/src\/(.*)\.js/) || [])[1];
   
   return {
-    input: inputFile,
+    input: entryFile,
     output: {
       file: `./dist/${filenameNoExtension}.bundle.js`,
       format: 'iife',

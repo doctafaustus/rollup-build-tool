@@ -5,7 +5,7 @@ import { waitFor } from 'clearhead-utilities';
 import css from './styles/v1.scss';
 import smallest from 'smallest';
 
-console.log('v1');
+console.log('v1!');
 document.head.insertAdjacentHTML('beforeend', `<style id="test">${css}</style>`);
 console.log('testHTML', testHTML);
 helloWorld();

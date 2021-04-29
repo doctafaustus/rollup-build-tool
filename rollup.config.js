@@ -7,6 +7,7 @@ import html from 'rollup-plugin-html';
 import styles from 'rollup-plugin-styles';
 import alias from '@rollup/plugin-alias';
 import del from 'rollup-plugin-delete';
+import banner from 'rollup-plugin-banner';
 
 
 // Clean dist folder on first run
@@ -21,19 +22,21 @@ const configFiles = globby.sync('./src/*.js').map(entryFile => {
     input: entryFile,
     output: {
       file: `./dist/${filenameNoExtension}.bundle.js`,
-      format: 'iife',
+      format: 'iife'
     },
     plugins: [
       resolve(),
       commonjs(),
       terser(),
       html({ include: '**/*.html' }),
+      banner('jshint ignore: start'),
+      styles({ mode: 'extract', onExtract: () => false }),
       babel({ 
         exclude: 'node_modules/**',
         extensions: ['.js'],
         presets: ['@babel/preset-env']
       }),
-      styles({ mode: 'extract', onExtract: () => false }),
+
       alias({
         entries: [
           { find: '@', replacement: './' }

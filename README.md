@@ -15,15 +15,16 @@ A simple, no-frills build tool for creating single-file JS bundles for AB test p
 
 Install rollup globally with `npm install rollup --global`
 
-Install all the package.json dependencies with: `npm install`
+Install all the `package.json` dependencies with: `npm install`
 
 After installing the packages, run this command in the project directory to start the build:
 `npm start`
 
-Rollup will run and bundle code into the `dist` directory. This bundle can be copied and
-pasted into the Optimizely custom code editor for each variation.
+Rollup will run and bundle code into the `dist` directory. This bundle can be copied and pasted into the Optimizely custom code editor for each variation.
 
 The `package.json` file is set up to watch for any code changes and rebuild the files, however this can be disabled by removing `--watch` from the `package.json` `start` script. 
+
+All the rollup config is located in `rollup.config.js`.
 
 Babel plugins can be added to the plugins array. See the list of available ES6 plugins
 [here](https://babeljs.io/docs/en/plugins).

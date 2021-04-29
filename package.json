@@ -27,7 +27,6 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
-    "clearhead-utilities": "^1.0.15",
-    "smallest": "^1.0.1"
+    "clearhead-utilities": "^1.0.15"
   }
 }

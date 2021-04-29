@@ -1,13 +1,13 @@
 import globby from 'globby';
 import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
+import html from 'rollup-plugin-html';
+import del from 'rollup-plugin-delete';
+import alias from '@rollup/plugin-alias';
+import styles from 'rollup-plugin-styles';
+import banner from 'rollup-plugin-banner';
 import commonjs from 'rollup-plugin-commonjs';
 import { terser } from 'rollup-plugin-terser';
-import html from 'rollup-plugin-html';
-import styles from 'rollup-plugin-styles';
-import alias from '@rollup/plugin-alias';
-import del from 'rollup-plugin-delete';
-import banner from 'rollup-plugin-banner';
+import resolve from 'rollup-plugin-node-resolve';
 
 
 // Clean dist folder on first run
@@ -17,7 +17,7 @@ del({ targets: 'dist/*' }).buildStart();
 const configFiles = globby.sync('./src/*.js').map(entryFile => {
   
   const filenameNoExtension = (entryFile.match(/src\/(.*)\.js/) || [])[1];
-  
+
   return {
     input: entryFile,
     output: {
@@ -28,18 +28,17 @@ const configFiles = globby.sync('./src/*.js').map(entryFile => {
       resolve(),
       commonjs(),
       terser(),
-      html({ include: '**/*.html' }),
       banner('jshint ignore: start'),
+      html({ include: '**/*.html' }),
       styles({ mode: 'extract', onExtract: () => false }),
       babel({ 
         exclude: 'node_modules/**',
         extensions: ['.js'],
         presets: ['@babel/preset-env']
       }),
-
       alias({
         entries: [
-          { find: '@', replacement: './' }
+          { find: '@', replacement: `${__dirname}/src` }
         ]
       })
     ]

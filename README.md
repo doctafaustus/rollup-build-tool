@@ -22,7 +22,7 @@ After installing the packages, run this command in the project directory to star
 
 Rollup will run and bundle code into the `dist` directory. This bundle can be copied and pasted into the Optimizely custom code editor for each variation.
 
-The `package.json` file is set up to watch for any code changes and rebuild the files, however this can be disabled by removing `--watch` from the `package.json` `start` script. 
+The `npm start` command includes a watch for code changes and rebuilds the files, however this can be disabled by removing `--watch` from the `package.json` `start` script. 
 
 All the rollup config is located in `rollup.config.js`.
 
